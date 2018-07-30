@@ -1,0 +1,58 @@
+<!--pages/orders/payment/index.wxml-->
+<wxs src="../../index/util.wxs" module="foo" />
+<view class='container'>
+  <view class="Countdown">
+            <view class='zan-font-16'>剩余支付时间</view>
+            <view class="pay-downtime zan-c-warn zan-font-20">{{secondFormat}}</view>
+            <view class='zan-font-12 zan-c-gray-dark'>超过时间，订单将被取消</view>
+  </view>
+ <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__label">应付金额</view>
+                <view class="weui-form-preview__value_in-hd">¥{{foo.Round(amount-order.useBalance)}}</view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">订单金额</view>
+                    <view class="weui-form-preview__value">¥{{order.total}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">可赚金额</view>
+                    <view class="weui-form-preview__value">- ¥{{foo.Round(order.total-order.amount)}}</view>
+                </view>
+                <block wx:if="{{order.useBalance>0}}">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">已使用余额</view>
+                    <view class="weui-form-preview__value">- ¥{{order.useBalance}}</view>
+                  </view>
+                </block>
+            </view>
+        </view>
+      <block wx:if="{{userProfile!=null && userProfile.balance>0 && order.useBalance==0}}">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd  zan-font-14">余额</view>
+                <view class="weui-cell__ft  zan-font-14">￥{{foo.Round(balance)}}</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd  zan-font-14">使用余额</view>
+                <view class="weui-cell__ft"><switch slot="footer" bindchange="changeUseBalance" /></view>
+            </view>
+        </view>
+      </block>
+      <view class='payment-active'>
+      <button class="weui-btn" disabled='{{second<=0}}' bindtap="onPayment" type="primary">立即支付</button>
+      </view>
+      <view class='payment-cancel'>
+      <button bindtap='cancelPay' class="weui-footer__link" hover-class='none'>暂不支付</button>
+      </view>
+
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator url="" class="weui-footer__link">闺蜜优团</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2018 GuiMi</view>
+            </view>
+        </view>
+</view>

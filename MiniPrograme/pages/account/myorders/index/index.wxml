@@ -1,0 +1,221 @@
+<!--pages/account/myorders/index/index.wxml-->
+<view class='container'>
+  <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="orders" wx:for="{{allList}}"  wx:for-index="index" wx:key="key" wx:for-item="order">
+            <navigator url="../detail/index?id={{order.id}}"  class="order margin-top-20" hover-class='none'>
+              <view class="order-header">
+                <text class="type {{order.orderStatus==3?'zan-c-warn':''}} {{order.orderStatus==1?'zan-c-green':''}}">{{order.statusName}}</text>
+                <text>{{order.dateformat}}</text>
+              </view>
+              <view class="weui-media-box weui-media-box_appmsg" wx:for="{{order.items}}" wx:key="item.id"  wx:for-index="iIndex" wx:for-item="item">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+                  <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc margin-top-10">规格：{{item.attr}}</view>
+                  <view class="order-num margin-top-10">订单编号：{{item.orderId}}</view>
+                </view>
+                <view class="order-detail-after font-26">
+                  <view>￥{{item.amount}}</view>
+                  <view class="zan-pull-right zan-font-12 zan-c-gray-dark">x{{item.quantity}}</view>
+                </view>
+              </view>
+            </navigator>
+                  <block wx:if="{{order.contact!=null}}">
+                <view class='address' >
+                  <view class='contact'>{{order.contact}}<text>{{order.mobile}}</text></view>
+                  <view class='detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+                </view>
+                </block>
+              <view class="order-footer">
+                <text>订单总计</text>
+                <text class="fr">￥{{ order.total}}</text>
+              </view>
+              <view wx:if="{{order.orderStatus==41 || order.orderStatus==1}}" class="order-button">
+                <!-- <navigator wx:if="{{order.orderStatus==100 || order.orderStatus==100}}" class="fr" hover-class="none">申请售后</navigator> -->
+                <block wx:if="{{order.orderStatus==41}}" >
+                <button class="fr sure" data-orderid="{{order.id}}" data-index="{{index}}" bindtap='finishedOrder' hover-class="none">确认收货</button>
+                <navigator url='/pages/account/myorders/express/index?id={{order.id}}' class="fr" hover-class="none">查看物流</navigator>
+                </block>
+                <block wx:if="{{order.orderStatus==1}}" >
+                <navigator class="fr primary" url='/pages/orders/payment/index?id={{order.id}}' hover-class="none">立即支付</navigator>
+                </block>
+              </view>
+          </view>        
+        <view wx:if="{{allTotal==allList.length}}" class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{allTotal>0?"我是有底线的":"没有数据"}}</view>
+        </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="orders" wx:for="{{pendingList}}"  wx:for-index="index" wx:key="key" wx:for-item="order">
+            <navigator url="../detail/index?id={{order.id}}"  class="order margin-top-20">
+              <view class="order-header">
+                 <text class="type {{order.orderStatus==3?'zan-c-warn':''}} {{order.orderStatus==1?'zan-c-green':''}}">{{order.statusName}}</text>
+                <text>{{order.dateformat}}</text>
+              </view>
+              <view class="weui-media-box weui-media-box_appmsg" wx:for="{{order.items}}" wx:key="item.id"  wx:for-index="iIndex" wx:for-item="item">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+                  <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc margin-top-10">规格：{{item.attr}}</view>
+                  <view class="order-num  margin-top-15">订单编号：{{item.orderId}}</view>
+                </view>
+                <view class="order-detail-after font-26">
+                  <view>￥{{item.amount}}</view>
+                  <view class="zan-pull-right zan-font-12 zan-c-gray-dark">x{{item.quantity}}</view>
+                </view>
+              </view>
+            </navigator>
+                  <block wx:if="{{order.contact!=null}}">
+                <view class='address' >
+                  <view class='contact'>{{order.contact}}<text>{{order.mobile}}</text></view>
+                  <view class='detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+                </view>
+                </block>
+              <view class="order-footer">
+                <text>订单总计</text>
+                <text class="fr">￥{{ order.total}}</text>
+              </view>
+              <view wx:if="{{order.orderStatus==1}}" class="order-button">
+                <block wx:if="{{order.orderStatus==1}}" >
+                <navigator class="fr primary" url='/pages/orders/payment/index?id={{order.id}}' hover-class="none">立即支付</navigator>
+                </block>
+              </view>
+          </view>        
+          <view wx:if="{{pendingTotal==pendingList.length}}" class="weui-loadmore weui-loadmore_line">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{pendingTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <view class="orders" wx:for="{{paidList}}"  wx:for-index="index" wx:key="key" wx:for-item="order">
+            <navigator url="../detail/index?id={{order.id}}"  class="order margin-top-20">
+              <view class="order-header">
+                 <text class="type {{order.orderStatus==3?'zan-c-warn':''}} {{order.orderStatus==1?'zan-c-green':''}}">{{order.statusName}}</text>
+                <text>{{order.dateformat}}</text>
+              </view>
+              <view class="weui-media-box weui-media-box_appmsg" wx:for="{{order.items}}" wx:key="item.id"  wx:for-index="iIndex" wx:for-item="item">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+                  <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc margin-top-10">规格：{{item.attr}}</view>
+                  <view class="order-num  margin-top-15">订单编号：{{item.orderId}}</view>
+                </view>
+                <view class="order-detail-after font-26">
+                  <view>￥{{item.amount}}</view>
+                  <view class="zan-pull-right zan-font-12 zan-c-gray-dark">x{{item.quantity}}</view>
+                </view>
+              </view>
+            </navigator>
+            <block wx:if="{{order.contact!=null}}">
+                <view class='address' >
+                  <view class='contact'>{{order.contact}}<text>{{order.mobile}}</text></view>
+                  <view class='detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+                </view>
+                </block>
+              <view class="order-footer">
+                <text>订单总计</text>
+                <text class="fr">￥{{ order.total}}</text>
+              </view>
+          </view>        
+          <view wx:if="{{paidTotal==paidList.length}}" class="weui-loadmore weui-loadmore_line">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{paidTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+          <view class="orders" wx:for="{{shippingList}}"  wx:for-index="index" wx:key="key" wx:for-item="order">
+            <navigator url="../detail/index?id={{order.id}}"  class="order margin-top-20">
+              <view class="order-header">
+                 <text class="type {{order.orderStatus==3?'zan-c-warn':''}} {{order.orderStatus==1?'zan-c-green':''}}">{{order.statusName}}</text>
+                <text>{{order.dateformat}}</text>
+              </view>
+              <view class="weui-media-box weui-media-box_appmsg" wx:for="{{order.items}}" wx:key="item.id"  wx:for-index="iIndex" wx:for-item="item">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+                  <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc margin-top-10">规格：{{item.attr}}</view>
+                  <view class="order-num  margin-top-15">订单编号：{{item.orderId}}</view>
+                </view>
+                <view class="order-detail-after font-26">
+                  <view>￥{{item.amount}}</view>
+                  <view class="zan-pull-right zan-font-12 zan-c-gray-dark">x{{item.quantity}}</view>
+                </view>
+              </view>
+            </navigator>
+                  <block wx:if="{{order.contact!=null}}">
+                <view class='address' >
+                  <view class='contact'>{{order.contact}}<text>{{order.mobile}}</text></view>
+                  <view class='detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+                </view>
+                </block>
+              <view class="order-footer">
+                <text>订单总计</text>
+                <text class="fr">￥{{ order.total}}</text>
+              </view>
+              <view wx:if="{{order.orderStatus==41}}" class="order-button">
+                <block wx:if="{{order.orderStatus==41}}" >
+                <button class="fr sure" data-orderid="{{order.id}}" data-index="{{index}}" bindtap='finishedOrder' hover-class="none">确认收货</button>
+                <navigator url='/pages/account/myorders/express/index?id={{order.id}}' class="fr" hover-class="none">查看物流</navigator>
+                </block>
+              </view>
+          </view>        
+          <view wx:if="{{shippingTotal==shippingList.length}}" class="weui-loadmore weui-loadmore_line">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{shippingTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 4}}">
+          <view class="orders" wx:for="{{finishedList}}"  wx:for-index="index" wx:key="key" wx:for-item="order">
+            <navigator url="../detail/index?id={{order.id}}"  class="order margin-top-20">
+              <view class="order-header">
+                 <text class="type {{order.orderStatus==3?'zan-c-warn':''}} {{order.orderStatus==1?'zan-c-green':''}}">{{order.statusName}}</text>
+                <text>{{order.dateformat}}</text>
+              </view>
+              <view class="weui-media-box weui-media-box_appmsg" wx:for="{{order.items}}" wx:key="item.id"  wx:for-index="iIndex" wx:for-item="item">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                  <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                  <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+                  <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc margin-top-10">规格：{{item.attr}}</view>
+                  <view class="order-num  margin-top-15">订单编号：{{item.orderId}}</view>
+                </view>
+                <view class="order-detail-after font-26">
+                  <view>￥{{item.amount}}</view>
+                  <view class="zan-pull-right zan-font-12 zan-c-gray-dark">x{{item.quantity}}</view>
+                </view>
+              </view>
+            </navigator>
+                  <block wx:if="{{order.contact!=null}}">
+                <view class='address' >
+                  <view class='contact'>{{order.contact}}<text>{{order.mobile}}</text></view>
+                  <view class='detail'>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+                </view>
+                </block>
+              <view class="order-footer">
+                <text>订单总计</text>
+                <text class="fr">￥{{ order.total}}</text>
+              </view>
+          </view>        
+          <view wx:if="{{finishedTotal==finishedList.length}}" class="weui-loadmore weui-loadmore_line">
+              <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{finishedTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

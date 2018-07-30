@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "zan-cell": "../../../components/cell/index",
+    "zan-icon": "../../../components/icon/index",
+    "zan-row": "../../../components/row/index",
+    "zan-col": "../../../components/col/index",
+    "zan-panel": "../../../components/panel/index",
+    "zan-capsule": "../../../components/capsule/index",
+    "zan-button": "../../../components/btn/index",
+    "zan-button-group": "../../../components/btn-group/index",
+    "zan-cell-group": "../../../components/cell-group/index"
+  }
+}

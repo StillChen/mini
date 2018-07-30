@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "批量下单",
+  "usingComponents": {
+    "zan-icon": "../../../components/icon/index",
+    "zan-row": "../../../components/row/index",
+    "zan-col": "../../../components/col/index",
+    "zan-card": "../../../components/card/index",
+    "zan-panel": "../../../components/panel/index",
+    "zan-capsule": "../../../components/capsule/index",
+    "zan-stepper": "../../../components/stepper/index",
+    "zan-button": "../../../components/btn/index",
+    "zan-cell": "../../../components/cell/index",
+    "zan-cell-group": "../../../components/cell-group/index",
+    "zan-button-group": "../../../components/btn-group/index",
+    "zan-popup": "../../../components/popup/index"
+  }
+}

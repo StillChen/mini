@@ -1,0 +1,94 @@
+/* pages/account/myteam/index.wxss */
+
+.weui-navbar__title {
+  font-size: 28rpx;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #fb9c78;
+}
+
+.weui-navbar {
+  background: #fff;
+}
+
+.weui-navbar__slider {
+  background: #f97b4b;
+  margin-left: 110rpx;
+  width: 150rpx;
+}
+
+
+.froms {
+  background: #fff;
+}
+
+.from {
+  padding: 20rpx 24rpx;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: 1px solid #f5f3f3;
+}
+
+.from-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  margin: auto 0;
+}
+
+.from-after {
+  width: auto;
+  vertical-align: middle;
+  margin: auto;
+  font-size: 28rpx;
+}
+
+.from-title {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.from-detail {
+  font-size: 24rpx;
+  color: #b3b3b3;
+}
+
+.from-detail text:first-child {
+  margin-right: 30rpx;
+}
+
+.from-content {
+  color: #b3b3b3;
+  font-size: 24rpx;
+}
+
+.from-icon {
+  margin-right: 20rpx;
+}
+
+.from-icon image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.lev {
+  display: inline-block;
+  text-align: center;
+  width: 127rpx;
+  height: 44rpx;
+  border: 1px solid #fa9c77;
+  border-radius: 40rpx;
+  color: #fa9c77;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.lev::after {
+  border: none;
+}

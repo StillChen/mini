@@ -1,0 +1,97 @@
+/* pages/account/myorders/detail/index.wxss */
+
+.order-detail-top {
+  padding: 20rpx 24rpx 0;
+  font-size: 26rpx;
+  background-color: #fff;
+}
+
+.order-detail-top view {
+  padding-bottom: 30rpx;
+}
+.title {
+  font-size: 26rpx;
+  padding: 10rpx 24rpx;
+  color: #0a0a0a;
+}
+.address {
+  padding: 10rpx 24rpx;
+  font-size: 22rpx;
+  border-top: 1rpx #e4e4e4 solid;
+}
+.bg-color-white{
+  background-color: #fff;
+}
+.margin-top-20{
+  margin-top: 20rpx;
+}
+.weui-media-box__title {
+  font-size: 26rpx;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 138rpx;
+  height: 138rpx;
+}
+
+.weui-media-box__hd_in-appmsg image {
+  border-radius: 10rpx;
+}
+
+.weui-media-box__desc {
+  line-height: 1.5;
+}
+.weui-media-box:before{
+  left: 0;
+  border-top: 1px solid #f0eff5;
+}
+.weui-cells{
+  margin-top:0rpx;
+}
+.weui-cell{
+  font-size: 26rpx;
+}
+.weui-cell:before{
+  left: 0;
+  border-top: 1px solid #f0eff5;
+}
+.apply{
+  box-sizing: border-box;
+  padding: 20rpx 24rpx;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #f5f3f3;
+}
+.apply navigator{
+  display: inline-block;
+  border: 1px solid #666;
+  margin-left: 15rpx;
+  font-size: 24rpx;
+  padding: 12rpx 26rpx;
+  border-radius: 10rpx;
+  color: #666;
+}
+.temai {
+  border: 1px solid #af8b2e;
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  color: #af8b2e;
+}
+.express{
+  background-color: #f97b4b;
+  padding: 30rpx 0 30rpx 50rpx;
+  color: #ffc989;
+  font-size: 24rpx;
+}
+.express .status{
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.express .company{
+  margin-top: 20rpx;
+}

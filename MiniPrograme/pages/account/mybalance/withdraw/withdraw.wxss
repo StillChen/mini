@@ -1,0 +1,38 @@
+/* pages/account/mybalance/withdraw/withdraw.wxss */
+.bg-white{
+  background-color: #ffffff;
+}
+.notice {
+  font-size: 22rpx;
+  color: #838383;
+  line-height: 22rpx;
+  padding: 24rpx;
+}
+.notice view{
+  margin-top: 20rpx;
+}
+.weui-cell{
+  height: 100rpx;
+  font-size:28rpx;
+}
+.weui-label{
+  width:230rpx;
+}
+.be-choose{
+  position: absolute;
+  top: 25rpx;
+  right: 120rpx;
+}
+.money-button{
+  display: inline-block;
+  padding:0;
+  margin: 0;
+  background: transparent;
+  line-height: 100rpx;
+  font-size: 24rpx;
+  color: #345f99;
+  vertical-align: bottom;
+}
+.money-button::after{
+  border: none;
+}

@@ -1,0 +1,4 @@
+/* pages/orders/paymentFail/index.wxss */
+.weui-btn{
+  border-radius: 46rpx;
+}

@@ -1,0 +1,22 @@
+<!--pages/account/mybalance/withdrawrecords/withdrawrecords.wxml-->
+<view class="container">
+  <view class="froms">
+    <view class="from" wx:for="{{froms}}" wx:key="key" wx:for-item="from">
+      <view class="from-content">
+        <view class="from-title">{{from.title}}</view>
+        <view class="from-detail">
+          <text>{{from.subtitle}}</text>
+          <text>{{from.date}}</text>
+        </view>
+      </view>
+      <view class="from-after">{{from.money}}</view>
+    </view>
+  </view>
+   <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+     <view wx:if="{{!isLoading && fromsTotal==froms.length}}" class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{fromsTotal>0?"我是有底线的":"没有数据"}}</view>
+        </view>
+</view>

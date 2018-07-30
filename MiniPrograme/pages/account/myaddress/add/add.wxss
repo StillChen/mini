@@ -1,0 +1,34 @@
+/* pages/account/address/add/add.wxss */
+.view-cells{
+  background: #fff;
+  margin-top: 15rpx;
+}
+.weui-label{
+  width: 200rpx;
+  font-size: 28rpx;
+}
+.weui-input{
+  font-size:14px;
+}
+textarea{
+  font-size: 14px;
+}
+.weui-btn{
+  vertical-align: middle;
+  margin-top: 0;
+  margin-right: 22rpx;
+  background: #cfcfcf;
+  border-radius: 25rpx;
+  padding: 0rpx 18rpx !important;
+  border: none;
+}
+button.weui-btn[size=mini]{
+  line-height: 50rpx;
+}
+.beChoose{
+  background: #f97b4b;
+  color: #fff;
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:40px !important;height: 18px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}

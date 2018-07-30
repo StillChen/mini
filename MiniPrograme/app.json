@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/account/index/index",
+    "pages/auth/login/index",
+    "pages/account/myperformance/index/index",
+    "pages/account/myorders/detail/index",
+    "pages/account/myorders/index/index",
+    "pages/resource/index/index",
+    "pages/account/myaddress/list/index",
+    "pages/account/myaddress/add/add",
+    "pages/account/mybalance/index/index",
+    "pages/account/mybalance/records/records",
+    "pages/account/mybalance/withdraw/withdraw",
+    "pages/account/mybalance/withdrawrecords/withdrawrecords",
+    "pages/account/myteam/index",
+    "pages/account/feedback/index",
+    "pages/account/myincome/index/index",
+    "pages/orders/confirm/index",
+    "pages/products/index/index",
+    "pages/orders/clientconfirm/index",
+    "pages/orders/chooseAddress/index",
+    "pages/orders/payment/index",
+    "pages/orders/paymentSuccess/index",
+    "pages/orders/paymentFail/index",
+    "pages/account/myorders/express/index"
+  ],
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#fa5379",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日团品",
+        "iconPath": "asset/images/home.png",
+        "selectedIconPath": "asset/images/home-on.png"
+      },
+      {
+        "pagePath": "pages/resource/index/index",
+        "text": "往期团品",
+        "iconPath": "asset/images/material.png",
+        "selectedIconPath": "asset/images/material-on.png"
+      },
+      {
+        "pagePath": "pages/account/index/index",
+        "text": "我的",
+        "iconPath": "asset/images/my.png",
+        "selectedIconPath": "asset/images/my-on.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "闺蜜优团",
+    "navigationBarTextStyle": "black"
+  }
+}

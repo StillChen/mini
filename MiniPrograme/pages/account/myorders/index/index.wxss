@@ -1,0 +1,155 @@
+/* pages/account/myorders/index/index.wxss */
+
+.weui-navbar__title {
+  font-size: 28rpx;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #fb9c78;
+}
+
+.weui-navbar {
+  background: #fff;
+}
+
+.weui-navbar__slider {
+  background: #f97b4b;
+  margin-left: 17rpx;
+  width: 15%;
+}
+
+.order {
+  background: #fff;
+}
+
+.weui-media-box:before {
+  left: 0;
+}
+
+.order-header {
+  font-size: 22rpx;
+  color: #878585;
+  height: 90rpx;
+  padding: 0 24rpx;
+  line-height: 90rpx;
+}
+
+.order-header text {
+  margin-left: 20rpx;
+}
+
+.order-header text:first-child {
+  margin-left: 0;
+}
+
+.type {
+  display: inline-block;
+  height: 100%;
+  padding-right: 34rpx;
+  border-right: 1px solid #f5f3f3;
+  font-size: 26rpx;
+}
+
+.order-footer {
+  padding: 0 24rpx;
+  font-size: 26rpx;
+  color: #666;
+  border-top: 1px solid #f5f3f3;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-footer .fr {
+  color: #adadad;
+}
+
+.weui-media-box__hd_in-appmsg {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.weui-media-box__hd_in-appmsg image {
+  border-radius: 15rpx;
+}
+
+.weui-media-box__title {
+  font-size: 26rpx;
+}
+
+.weui-media-box__desc {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.order-num {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.the-footer {
+  margin-top: 180rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #878585;
+  margin-bottom: 80rpx;
+}
+
+.the-footer .iconfont {
+  font-size: 24rpx;
+}
+
+.order-button {
+  height: 90rpx;
+  padding: 0 24rpx;
+  border-top: 1px solid #f5f3f3;
+  background-color: #fff;
+}
+
+.order-button button.fr{
+  height: 48rpx;
+}
+.order-button .fr {
+  height: 24rpx;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  border-radius: 24rpx;
+  margin-top: 20rpx;
+  border: 1px solid #f5f3f3;
+  margin-left: 15rpx;
+  float: right;
+}
+.order-button .fr:after{
+  border: none;
+}
+.order-button .fr.sure{
+  background: #f97b4b;
+  color: #fff;
+}
+.order-button .fr.primary{
+  background: #1AAD19;
+  color: #fff;
+}
+.margin-top-10{
+  margin-top: 10rpx;
+}
+.address{
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  border-top: 1rpx #f5f3f3 solid;
+}
+.address .contact{
+  font-size: 28rpx;
+}
+.address .contact text{
+  font-size: 26rpx;
+  color: #adadad;
+  margin-left: 20rpx;
+}
+.address .detail{
+  font-size: 26rpx;
+  color: #666;
+}

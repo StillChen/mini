@@ -1,0 +1,65 @@
+<!--pages/account/myincome/index/index.wxml-->
+<view class="container">
+  <view class="all-income">
+    <view style="zan-font-12">累计收益</view>
+    <view class="zan-c-warn zan-font-20">{{income.totalProfit}}元</view>
+  </view>
+  <view class="flex-wrp" style='margin-bottom:0;'>
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{income.mallProfit}}元</view>
+      <view class="flex-wrp-bottom">零售利润</view>
+    </view>
+    <view class="cut-off-rule"></view>
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{income.investmentReward}}元</view>
+      <view class="flex-wrp-bottom">招商利润</view>
+    </view>
+  </view>
+  <view class="flex-wrp">
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{income.promotionAward}}元</view>
+      <view class="flex-wrp-bottom">分销提成</view>
+    </view>
+    <view class="cut-off-rule"></view>
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{income.priceDiffReward}}元</view>
+      <view class="flex-wrp-bottom">团队价差</view>
+    </view>
+  </view>
+  <view class="incomes margin-top-20">
+    <block wx:for="{{dayIncome}}" wx:key="income.id" wx:for-item="income">
+    <view class="income">
+        <view class='income-title'>
+          <view class='date'>{{income.fdate}}</view>
+          <view class='amount'>{{income.profit.totalProfit}}</view>
+        </view>
+        <view class='income-body'>
+          <view class='income-col'>
+            <view class='zan-font-16 zan-c-warn'>{{income.profit.mallProfit}}</view>
+            <view>零售利润</view>
+          </view>
+          <view class='income-col'>
+            <view class='zan-font-16 zan-c-warn'>{{income.profit.investmentReward}}</view>
+            <view>招商利润</view>
+          </view>
+          <view class='income-col'>
+            <view class='zan-font-16 zan-c-warn'>{{income.profit.promotionAward}}</view>
+            <view>分销提成</view>
+          </view>
+          <view class='income-col'>
+            <view class='zan-font-16 zan-c-warn'>{{income.profit.priceDiffReward}}</view>
+            <view>团队价差</view>
+          </view>
+        </view>
+    </view>
+    </block>
+    <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:if="{{!isLoading && dayIncomeTotal == dayIncome.length}}" class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{dayIncomeTotal>0?"我是有底线的":"没有数据"}}</view>
+    </view>
+  </view>
+    
+</view>

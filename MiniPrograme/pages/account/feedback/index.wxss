@@ -1,0 +1,45 @@
+/* pages/account/feedback/index.wxss */
+.feedback-title{
+  font-size: 28rpx;
+  margin-top:50rpx;
+}
+.feedback-head{
+  display: inline-block;
+  width: 8rpx;
+  height: 28rpx;
+  background: #f97b4b;
+  border-radius: 10rpx;
+  vertical-align: middle;
+}
+.button-all{
+  padding: 0 24rpx;
+}
+.button-all button{
+  width: 180rpx;
+  height: 60rpx;
+  padding: 0;
+  font-size: 25rpx;
+  background: #fff;
+  border-radius: 0;
+  display: inline-block;
+  margin: 5rpx 10rpx;
+}
+.button-all button.active{
+  background: #f97b4b;
+  color: #fff;
+}
+.button-all button::after{
+  border: none;
+}
+.weui-cells:before{
+  border:none;
+}
+.padding-24{
+  padding: 24rpx;
+}
+.margin-24{
+  margin: 24rpx;
+} 
+.margin-top-30{
+  margin-top: 30rpx;
+}

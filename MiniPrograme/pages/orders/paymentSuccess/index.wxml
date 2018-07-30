@@ -1,0 +1,26 @@
+<!--pages/orders/paymentSuccess/index.wxml-->
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="success" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">支付成功</view>
+            <view class="weui-msg__desc">您已成功下单，您可以到<text class='zan-c-blue'>订单中心</text>追踪您的订单信息</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button data-url="/pages/account/index/index" bindtap='goUrl' class="weui-btn" type="primary">个人中心</button>
+                <button data-url="/pages/index/index" bindtap='goUrl' class="weui-btn" type="default">今日团购</button>
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator data-url="/pages/account/index/index" bindtap='goUrl' class="weui-footer__link">闺蜜优团</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2018 GuiMi</view>
+            </view>
+        </view>
+    </view>
+</view>

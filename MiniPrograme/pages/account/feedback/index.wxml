@@ -1,0 +1,42 @@
+<!--pages/account/feedback/index.wxml-->
+<view class="container">
+  <form bindsubmit='onSubmitForm'>
+  <view class="feedback-title padding-24">
+    <text class="feedback-head"></text> 选择您要反馈的问题类型
+    <text class="zan-font-12 zan-c-gray">（必填）</text>
+  </view>
+  <view class="button-all">
+    <button data-kind="0" bindtap='chooseKind' class='{{activeKind==0?"active":""}}'>购物流程</button>
+    <button data-kind="1" bindtap='chooseKind' class='{{activeKind==1?"active":""}}'>物流问题</button>
+    <button data-kind="2" bindtap='chooseKind' class='{{activeKind==2?"active":""}}'>售后服务</button>
+    <button data-kind="3" bindtap='chooseKind' class='{{activeKind==3?"active":""}}'>新品提议</button>
+    <button data-kind="4" bindtap='chooseKind' class='{{activeKind==4?"active":""}}'>其他意见</button>
+  </view>
+  <view class="feedback-title padding-24">
+    <text class="feedback-head"></text> 您的建议
+    <text class="zan-font-12 zan-c-gray">（必填）</text>
+  </view>
+  <view class="weui-cells margin-24 margin-top-30">
+    <view class="weui-cell">
+      <view class="weui-cell__bd zan-font-12">
+        <textarea name="message" class="weui-textarea" placeholder="感谢您对闺蜜优团的支持" style="height: 185rpx" />
+      </view>
+    </view>
+  </view>
+  <view class="feedback-title padding-24">
+    <text class="feedback-head"></text> 您的联系方式
+    <text class="zan-font-12 zan-c-gray">（必填）</text>
+  </view>
+  <view class="weui-cells  margin-24 margin-top-30">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd zan-font-12">
+        <input name="mobile" class="weui-input" placeholder="填写手机号" />
+      </view>
+    </view>
+  </view>
+  <view class="font-20 color-hui margin-24 margin-top-30">商品如何使用等相关的咨询，请联系我们的在线客服哦~</view>
+  <view class="fixed-bottom">
+    <button disabled="{{isSubmit}}" form-type='submit'>提交建议</button>
+  </view>
+  </form>
+</view>

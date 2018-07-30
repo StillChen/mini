@@ -1,0 +1,22 @@
+<!--pages/orders/chooseAddress/index.wxml-->
+<view class='container' style='width:750rpx;'>
+  <checkbox-group bindchange="changeAddress">
+    <view class='address-list'>
+      <view class='addr-item' wx:for="{{addresses}}" wx:for-index="index" wx:key="key" wx:for-item="address">
+        <view class='checkitem'>
+          <checkbox value='{{address.value}}' checked='{{address.checked}}'></checkbox>
+        </view>
+        <view class='content'>
+          <view class='title'>
+            <view class='zan-font-16'>{{address.name}}</view>
+            <view class='zan-c-gray-darker'>{{address.phone}}</view>
+          </view>
+          <view class='zan-c-gray-dark'>{{address.address}}</view>
+        </view>
+      </view>      
+    </view>
+    </checkbox-group>
+    <view class="fixed-bottom">
+      <button bindtap="saveClientAddress">选择收货人</button>
+    </view>
+  </view>

@@ -1,0 +1,102 @@
+<!--pages/orders/confirm/index.wxml-->
+<wxs src="../../index/util.wxs" module="foo" />
+<view class="container">
+  <zan-panel hideboarder="{{true}}">
+  <zan-card card-class="goods-card" thumb="{{goods.thumb}}" useThumbSlot="{{ true }}" useDetailSlot="{{ true }}">
+      <!-- 右侧详情 -->
+      <view slot="detail-slot" class="zan-card__detail">
+        <view style='margin-top:10rpx;' class="zan-ellipsis zan-font-14 goods-title">
+        {{goods.title}}
+        </view>
+        <block wx:if="{{goods.subtitle!=null && goods.subtitle!=''}}">
+        <view class="zan-ellipsis zan-font-12 goods-subtitle zan-c-gray">
+        {{goods.subtitle}}
+        </view>
+        </block>
+        <block wx:if="{{goods.attrValue!=null && goods.attrValue!=''}}">
+        <view class="zan-ellipsis zan-font-12 goods-subtitle zan-c-gray-dark">
+        规格:{{goods.attrValue}}
+        </view>
+        </block>
+        <view style='margin-top:10rpx;'>
+          <text class='zan-font-12 zan-c-gray-dark'>团购价</text>
+        <text class='zan-font-12 zan-c-red'>￥</text>
+        <text class='zan-font-16 zan-c-red'>{{goods.price}}</text>
+        <block wx:if="{{goods.income>=0}}">
+        <zan-capsule color="#ff8c27" leftText="赚" rightText="{{goods.income}}"></zan-capsule>
+        </block>
+        </view>
+      </view>
+    </zan-card>
+  </zan-panel>
+  <zan-panel wx:if="{{customs.length>0}}" class="panel-top" hide-border="true">
+    <view class='addresslist-title'>
+      <zan-icon type="location"></zan-icon> 客户地址
+      <view class="zan-pull-right" bindtap='clearCustom' style='color:#ff8c27'>清空地址</view>
+    </view>
+    <view class="address-all">
+        <view class="address" wx:for="{{customs}}" wx:for-index="index" wx:key="key" wx:for-item="custom">
+          <view class="address-content">
+            <view class="zan-font-14 contact">{{custom.name}}</view>
+            <view class="zan-font-12 zan-c-gray-darker zan-ellipsis--l2">{{custom.address}}</view>
+            <view class="zan-font-14 mobile">{{custom.phone}}</view>
+          </view>
+          <view class="address-handle">
+            <button data-index="{{index}}" bindtap="removeCustomAddress" class="delete">
+              <zan-icon type='delete'></zan-icon>
+            </button>
+            <view class="buy-num">
+              <zan-stepper
+                stepper="{{custom.stepper.stepper}}"
+                min="{{custom.stepper.min}}"
+                max="{{custom.stepper.max}}"
+                data-component-id="customs[{{index}}].stepper"
+                bind:change="handleZanStepperChange"
+                size="small"
+                is-circle
+              >
+              </zan-stepper>
+            </view>
+          </view>
+        </view>
+      </view>
+  </zan-panel>
+ <zan-panel hide-border="true" class="panel-top">
+  <zan-row>
+    <zan-col col="12">
+      <view class="my-btn" bindtap='chooseClientAddress'>选择客户地址(多选)</view>
+    </zan-col>
+    <zan-col col="12">
+      <view class="my-btn" bindtap='addNewAddress' style='border-left:0px;'>添加新地址</view>
+    </zan-col>
+  </zan-row>
+ </zan-panel>
+ <zan-panel class="panel-top list">
+  <zan-cell-group>
+    <zan-cell title="总计">
+      <view slot="footer" class='zan-c-red'>
+      ￥{{foo.Round(goods.price*quantity)}}
+      </view>
+    </zan-cell>
+    <zan-cell title="可赚差价">
+      <view slot="footer" class='zan-c-warn'>
+      ￥{{foo.Round(goods.income*quantity)}}
+      </view>
+    </zan-cell>
+    <zan-cell title="实际应付">
+      <view slot="footer" class='zan-c-green'>
+      ￥{{foo.Round(amount)}}
+      </view>
+    </zan-cell>
+    <!-- <block wx:if="{{userProfile!=null && userProfile.balance>0}}">
+    <zan-cell title="可用余额" value="￥{{userProfile.balance}}"></zan-cell>
+    <zan-cell title="使用余额">
+      <switch slot="footer" bindchange="changeUseBalance" color='#f97b4b' />
+    </zan-cell>
+    </block> -->
+  </zan-cell-group>
+ </zan-panel>
+  <view class="fixed-bottom">
+    <button disabled='{{customs.length==0 || isSubmit}}' bindtap="createOrder">提交订单</button>
+  </view>
+</view>

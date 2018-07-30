@@ -1,0 +1,14 @@
+function Percent(stock, quantity) 
+{
+  return (quantity-stock)/quantity*100;
+}
+
+function Round(float)
+{
+  return Math.round(float*100)/100;
+}
+
+module.exports = {
+  Percent: Percent,
+  Round: Round
+}

@@ -1,0 +1,123 @@
+/* pages/orders/confirm/index.wxss */
+.goods-card{
+  display: block;
+  padding:20rpx !important;
+}
+.goods-card .goods-title{
+  width: 450rpx;
+}
+.goods-card .goods-subtitle{
+  width: 450rpx;
+  margin-top: 6rpx;
+}
+.weui-progress{
+  margin-top: 5px;
+  position:relative;
+  height: 32rpx;
+}
+.weui-progress .weui-progress__bar{
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px #f48f18 solid;
+}
+.weui-progress .weui-progress__opr{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  font-size: 10px;
+  color: #f48f18;
+  line-height: 32rpx;
+  height: 32rpx;
+}
+.panel-top{
+  display: block;
+  margin-top: 20rpx;
+}
+.addresslist-title
+{
+   height: 60rpx; 
+   line-height: 60rpx;
+   padding: 10rpx 20rpx;
+   border-bottom: 1rpx #e5e5e5 solid;
+   border-top: 1rpx #e5e5e5 solid;
+}
+
+.address{
+  display: flex;
+  padding: 30rpx 24rpx;
+  border-bottom: 1px solid #f5f3f3;
+}
+.address-content{
+  width: 465rpx;
+  line-height: 40rpx;
+}
+.address-content .contact{
+  line-height: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-bottom: 20rpx;
+}
+.address-content .mobile{
+  display: block;
+  margin-top: 20rpx;
+}
+.address-handle{
+  flex: 1;
+  text-align: right;
+}
+.address-handle .delete{
+  box-sizing: border-box;
+  width: 50rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 100%;
+  background: #f4f4f4;
+  color: #a9a9a9;
+}
+.address-handle .delete::after{
+  border: none;
+}
+.address-handle .buy-num{
+  margin-top: 80rpx;
+}
+
+.my-btn{
+  border-radius: 0px !important;
+  color: #f48f18 !important;
+  border: 1rpx #e5e5e5 solid;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  text-align: center;
+}
+
+.fixed-bottom {
+  width: 100%;
+  position: fixed;
+  background: #f5f3f3;
+  bottom: 0rpx;
+  padding: 20rpx 0;
+  border-top: 1px solid #f3f3f3;
+  z-index: 2;
+}
+
+.fixed-bottom button {
+  margin: 0 24rpx;
+  border-radius: 50rpx;
+  background: #f97b4b;
+  color: #fff;
+  font-size: 30rpx;
+}
+.list{
+  margin-bottom: 140rpx;
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:40px !important;height: 18px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}

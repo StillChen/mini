@@ -1,0 +1,4 @@
+/* pages/orders/paymentSuccess/index.wxss */
+.weui-btn{
+  border-radius: 46rpx;
+}

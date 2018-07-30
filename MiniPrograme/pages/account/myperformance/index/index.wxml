@@ -1,0 +1,19 @@
+<!--pages/account/myperformance/index/index.wxml-->
+<view class="container">
+  <view class="all-income">
+    <view style="zan-font-12">累计业绩</view>
+    <view class="zan-c-warn zan-font-20">{{achievement.wealth.totalAchievement}}元</view>
+    <view class='zan-c-gray zan-font-12'>(团队{{achievement.wealth.teamAchievement}}元)</view>
+  </view>
+  <view class="flex-wrp">
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{achievement.todayProfit!=null?achievement.todayProfit.profit.achievement:0}}元</view>
+      <view class="flex-wrp-bottom">今日业绩</view>
+    </view>
+    <view class="cut-off-rule"></view>
+    <view class="flex-item zan-text-center">
+      <view class="flex-wrp-top zan-c-warn">{{achievement.monthProfit!=null?achievement.monthProfit.profit.achievement:0}}元</view>
+      <view class="flex-wrp-bottom">本月业绩</view>
+    </view>
+  </view>
+</view>

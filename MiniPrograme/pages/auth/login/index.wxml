@@ -1,0 +1,9 @@
+<!--pages/auth/login/index.wxml-->
+<view class="container">
+  <view class='zan-text-center'>
+    <image class='logo' src='/asset/images/logo.png'></image>
+  </view>
+  <zan-button-group>
+    <zan-button disabled='{{isLoading}}' open-type="getUserInfo" bindgetuserinfo='bindGetUserInfo' custom-class="btn" type="warn">用户授权进入系统</zan-button>
+  </zan-button-group>
+</view>

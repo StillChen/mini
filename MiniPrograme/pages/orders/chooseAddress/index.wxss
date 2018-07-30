@@ -1,0 +1,40 @@
+/* pages/orders/chooseAddress/index.wxss */
+
+checkbox .wx-checkbox-input{  
+  border-radius: 26rpx;
+  margin-top: -4rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 30rpx;
+  width: 64rpx;
+  height: 54rpx;
+  background-color: #f97b4b;
+  text-align: center;
+  padding-top: 10rpx;
+  color: #fff;
+  margin-top: -1rpx;
+}
+
+.address-list{
+ margin-bottom: 160rpx;
+}
+.addr-item{
+  display: flex;
+  padding: 20rpx;
+  background: #fff;
+  border-bottom: 1rpx #e5e5e5 solid;
+}
+.addr-item .checkitem{
+  width: 80rpx;
+  padding-top: 20rpx;
+}
+.addr-item .content
+{
+  width: 100%;
+}
+.addr-item .content .title
+{
+  display: flex;
+  justify-content:space-between;
+}

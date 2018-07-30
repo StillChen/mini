@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "zan-button": "/components/btn/index",
+    "zan-button-group": "/components/btn-group/index"
+  }
+}

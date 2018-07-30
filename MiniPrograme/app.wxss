@@ -1,0 +1,55 @@
+@import "components/index.wxss";
+@import "components/weui.wxss";
+
+.container {
+  background: #F9F9F9;
+  overflow: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+  font-size: 14px;
+}
+.container::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: ' ';
+  width: 100%;
+  height: 1rpx;
+  background-color: #e2e2e2;
+  z-index: 5;
+}
+.zan-c-warn{
+  color: #f97b4b;
+}
+.zan-text-right
+{
+  text-align: right;
+}
+.zan-text-center
+{
+  text-align: center;
+}
+.margin-top-20{
+  margin-top: 20rpx;
+}
+
+.fixed-bottom {
+  width: 100%;
+  position: fixed;
+  background: #f9f9f9;
+  bottom:0rpx;
+  padding: 40rpx 0;
+  z-index: 15;
+}
+
+.fixed-bottom button {
+  margin: 0 24rpx;
+  border-radius: 50rpx;
+  background: #f97b4b;
+  color: #fff;
+  font-size: 30rpx;
+}
+button::after {
+  border: 0;
+} 

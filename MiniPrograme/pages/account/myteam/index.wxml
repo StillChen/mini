@@ -1,0 +1,68 @@
+<!--pages/account/myteam/index.wxml-->
+<wxs src="./util.wxs" module="foo" />
+<view class='container'>
+<view class="weui-tab">
+       <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{foo.Title(item,goldCustomsTotal,silverCustomsTotal,index)}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class="froms" wx:for="{{goldCustoms}}" wx:key="key" wx:for-item="goldCustom" wx:for-index="index">
+            <view class="from">
+              <view class="from-icon">
+                <image src="{{goldCustom.src}}"></image>
+              </view>
+              <view class="from-content">
+                <view class="from-title">{{goldCustom.name}}</view>
+                <view class="from-detail zan-font-12">
+                  <text>累计业绩：{{goldCustom.totalAchievement}}</text>
+                  <text>今日业绩：{{goldCustom.todayProfit}}</text>
+                </view>
+              </view>
+              <view class="from-after">
+                <text class="lev">{{goldCustom.levelName}}</text>
+              </view>
+            </view>
+          </view>
+           <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+          <view wx:if="{{!isLoading && goldCustomsTotal == goldCustoms.length}}" class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{goldCustomsTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="froms" wx:for="{{silverCustoms}}" wx:key="key" wx:for-item="silverCustom" wx:for-index="index">
+            <view class="from">
+              <view class="from-icon">
+                <image src="{{silverCustom.src}}"></image>
+              </view>
+              <view class="from-content">
+                <view class="from-title">{{silverCustom.name}}</view>
+                <view class="from-detail zan-font-12">
+                  <text>累计业绩：{{silverCustom.totalAchievement}}</text>
+                  <text>今日业绩：{{silverCustom.todayProfit}}</text>
+                </view>
+              </view>
+              <view class="from-after">
+                <text class="lev">{{silverCustom.levelName}}</text>
+              </view>
+            </view>
+          </view>
+          <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+          <view wx:if="{{!isLoading && silverCustomsTotal == silverCustoms.length}}" class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">{{silverCustomsTotal>0?"我是有底线的":"没有数据"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

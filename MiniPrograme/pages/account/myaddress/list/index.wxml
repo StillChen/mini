@@ -1,0 +1,36 @@
+<!--pages/account/myaddress/list/index.wxml-->
+<view class="container">
+  <radio-group class="raio-group" style="display:block;margin-bottom:160rpx">
+    <view class="radio" wx:for="{{addresses}}" wx:for-index="index" wx:key="key" wx:for-item="address">
+      <view class="address-1">
+        <view class="address-top">
+          <text class='zan-font-14'>{{address.name}}</text>
+          <text class="zan-pull-right zan-font-12">{{address.phone}}</text>
+        </view>
+        <view class="address-content zan-font-12">{{address.address}}</view>
+        <view class="address-bottom zan-font-14">
+          <block wx:if="{{address.checked}}">
+          <zan-icon type='{{address.checked?"checked":"check"}}'></zan-icon> <text class='zan-font-14' style='padding-left:10rpx;'>默认地址</text>
+          </block>
+          <block wx:if="{{!address.checked}}">
+          <text class='zan-font-14' style='padding-left:10rpx;'> </text>
+          </block>
+          <button data-index="{{index}}" class="zan-pull-right" data-value="{{address.value}}" bindtap="deleteAddress">
+            <zan-icon type='delete'></zan-icon> 删除</button>
+          <button data-index="{{index}}" class="zan-pull-right" data-value="{{address.value}}" bindtap="editAddress">
+            <zan-icon type='edit'></zan-icon> 编辑</button>
+        </view>
+      </view>
+    </view>
+      <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:if="{{!isLoading && TotalCount==addresses.length}}" class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+        </view>
+  </radio-group>
+  <view class="fixed-bottom">
+    <button bindtap="addNewAddress">添加新收货地址</button>
+  </view>
+</view>

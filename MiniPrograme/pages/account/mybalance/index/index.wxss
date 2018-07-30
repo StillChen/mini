@@ -1,0 +1,6 @@
+/* pages/account/mybalance/index/index.wxss */
+.all-income{
+  text-align: center;
+  padding: 60rpx;
+  background-color: #fff;
+}

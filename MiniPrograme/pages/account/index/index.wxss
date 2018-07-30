@@ -1,0 +1,147 @@
+/* pages/account/index/index.wxss */
+.container{
+  position:relative;
+}
+.background{
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  z-index: 1;
+  top: -90px;
+}
+.bacnground-canvas{
+  width: 100%;
+  height: 300px;
+}
+.page{
+  position: relative;
+  z-index: 2000;
+  width: 100%;
+  background-color: transparent;
+}
+.header{
+  display: flex;
+  padding: 20px ;
+}
+.header .avatar{
+  width: 80%;
+}
+.header .user-level{
+  width: 20%;
+}
+.level{
+  position: absolute;
+  right: 10rpx;
+  top:10rpx;
+}
+.level image{
+  width: 44px;
+  height: 60px;
+}
+.distance{
+  font-size: 24rpx;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0rpx 20rpx;
+  position: absolute;
+  right: 100rpx;
+  top: 20rpx;
+}
+.header .avatar image{
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  border: 5rpx solid #fff;
+  float: left;
+}
+.header .avatar text{
+  color: #fff;
+  font-size: 16px;
+  line-height: 94rpx;
+  height: 84px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.flex-wrp {
+  display: flex;
+}
+.headflex{
+  justify-content:space-between;
+}
+.flex-item {
+  text-align: center;
+  color: #fff;
+  width: 33.3%;
+}
+.flex-wrp-top {
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+
+.flex-wrp-bottom {
+  font-size: 20rpx;
+}
+.mypanel{
+  background-color: #fff;
+  display: block;
+  margin:20rpx;
+  border-radius: 10rpx;
+  padding: 20rpx;
+}
+.mypanel .panel-title{
+  border-bottom: 1rpx #e4e4e4 solid;
+  padding-bottom: 20rpx;
+}
+.mypanel .panel-title .arrow{
+  float: right;
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+}
+.mypanel .panel-body{
+  padding: 10rpx 0 10rpx 0;
+}
+.flex-list{
+  display: flex;
+  margin-top: 20rpx;
+}
+.flex-list .item {
+  text-align: center;
+  width: 25%;
+}
+.icon-list .icon .weui-badge{
+  position: absolute;
+  margin-left: -18rpx;
+  margin-top: -6rpx;
+}
+.icon-list .icon{
+ display: block;
+ color: #f97b4b;
+ font-size: 18px;
+ font-weight: bold;
+}
+.icon-list .icon.image{
+  padding: 0rpx;
+  margin: 0rpx;
+  height: 56rpx;
+}
+.icon-list .icon.image image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+}
+.icon-list text{
+ display: block;
+ font-size: 12px;
+ margin-top: 10rpx;
+}
+button.item{
+  margin:0;
+  padding: 0;
+  line-height:inherit;
+  background-color:transparent;
+}

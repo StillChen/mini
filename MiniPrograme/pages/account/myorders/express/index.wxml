@@ -1,0 +1,25 @@
+<!--pages/account/myorders/express/index.wxml-->
+<view class="page">
+  <view class="logistics-top border-top">
+    <!-- <view class="logistics-image">
+      <image src="http://192.168.0.164/product-img.jpg"></image>
+    </view> -->
+    <view class="logistics-title">
+      <view>
+        物流状态：{{express.stateName}}
+      </view>
+      <view>
+        物流公司：{{express.com}}
+      </view>
+      <view>运单编号：{{express.nu}}</view>
+    </view>
+  </view>
+  <view class="logistics-detail">
+    <view class="logistics"  wx:for="{{express.data}}"  wx:for-index="index" wx:key="key" wx:for-item="item">
+      <view class="circle"></view>
+      <view class="line"></view>
+      <view>{{item.context}}</view>
+      <view class='zan-c-gray-dark'>{{item.ftime}}</view>
+    </view>
+  </view>
+</view>

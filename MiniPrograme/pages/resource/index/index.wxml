@@ -1,0 +1,56 @@
+<!--pages/resource/index/index.wxml-->
+<!--index.wxml-->
+<wxs src="../../index/util.wxs" module="foo" />
+<view class="container">
+  <zan-panel class="snapbuy" hide-border="true">
+    <view wx:for="{{snapbuygoods}}" wx:key="goods">
+    <zan-card card-class="goods-card" thumb="{{item.thumb}}" useThumbSlot="{{ true }}" useDetailSlot="{{ true }}">
+      <!-- 右侧详情 -->
+      <view slot="detail-slot" class="zan-card__detail">
+        <view class="zan-ellipsis zan-font-14 goods-title">
+        {{item.title}}
+        </view>
+        <block wx:if="{{item.subtitle!=null && item.subtitle!=''}}">
+        <view class="zan-ellipsis zan-font-12 goods-subtitle zan-c-gray">
+        {{item.subtitle}}
+        </view>
+        </block>
+        <view style='margin-top:3px;'>
+        <text class='zan-font-12 zan-c-gray-dark'>团购价</text>
+        <text class='zan-font-12 zan-c-red'>￥</text>
+        <text class='zan-font-16 zan-c-red'>{{item.price}}</text>
+        <block wx:if="{{item.income>0}}">
+        <zan-capsule color="#ff8c27" leftText="赚" rightText="￥{{foo.Round(item.income)}}"></zan-capsule>
+        </block>
+        </view>
+         <zan-row>
+          <zan-col col="12">
+           <view class="weui-progress">
+              <block wx:if="{{item.quantity>0}}">
+                <view class="weui-progress__bar">
+                    <progress activeColor="#fdeedc" backgroundColor="#ffffff" percent="{{foo.Percent(item.stock,item.quantity)}}" stroke-width="14" />
+                </view>
+                <view class="weui-progress__opr">
+                  还剩{{item.stock}}件
+                </view>
+              </block>
+            </view>
+          </zan-col>
+          <zan-col col="12">
+            <view class='zan-pull-right' style='position:relative'>
+              <zan-button bindtap="showGoods" class='active' data-goodsid="{{item.id}}" type='warn' size='ssmall'>立即抢购</zan-button>
+            </view>
+          </zan-col>
+        </zan-row>
+      </view>
+    </zan-card>
+    </view>
+  </zan-panel>
+    <view wx:if="{{isLoading}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:if="{{!isLoading && TotalProducts==snapbuygoods.length}}" class="weui-loadmore weui-loadmore_line">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+        </view>
+</view>

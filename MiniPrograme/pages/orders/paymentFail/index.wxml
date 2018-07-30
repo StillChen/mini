@@ -1,0 +1,25 @@
+<!--pages/orders/paymentFail/index.wxml-->
+<view class="page">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="warn" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">支付失败</view>
+            <view class="weui-msg__desc">您下单失败，您可以到<text class='zan-c-blue'>订单中心</text>重新进行支付</view>
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" bindtap='goUrl' type="primary">个人中心</button>
+            </view>
+        </view>
+        <view class="weui-msg__extra-area">
+            <view class="weui-footer">
+                <view class="weui-footer__links">
+                    <navigator bindtap='goUrl' class="weui-footer__link">闺蜜优团</navigator>
+                </view>
+                <view class="weui-footer__text">Copyright © 2018 GuiMi</view>
+            </view>
+        </view>
+    </view>
+</view>

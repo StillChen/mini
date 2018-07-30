@@ -1,0 +1,156 @@
+<!--pages/account/index/index.wxml-->
+<view class='container'>
+<view class='background'>
+<image class='bacnground-canvas' src='{{ApiRootUrl}}images/background.png'></image> 
+</view>
+<view class='page'>
+  <view class='profile'>
+    <view class='header'>
+      <view class='avatar'>
+      <image src="{{userinfo.avatar}}" mode="cover"></image>
+      <text class='nickname'>{{userinfo.nickname}}</text>
+      </view>
+      <block  wx:if="{{level>0}}">
+      <view class='user-level'>
+          <text wx:if="{{uplevel!=''}}" class="distance">{{uplevel}}</text>
+       <view class="level">
+          <image src="{{levelImg}}"></image>
+        </view>
+      </view>
+      </block>
+    </view>
+    <view class="flex-wrp headflex">
+          <navigator url='../balance/balance' hover-class='none' class="flex-item">
+            <view class="flex-wrp-top">{{balance}}元</view>
+            <view class="flex-wrp-bottom">余额</view>
+          </navigator>
+          <navigator wx:if="{{level>1}}" url='../income/income' class="flex-item" hover-class='none'>
+            <view class="flex-wrp-top">{{income}}元</view>
+            <view class="flex-wrp-bottom">收益</view>
+          </navigator>
+          <navigator url='../my-team-performance/my-team-performance' class="flex-item" hover-class='none'>
+            <view class="flex-wrp-top">{{achievement}}元</view>
+            <view class="flex-wrp-bottom">业绩</view>
+          </navigator>
+        </view>
+  </view>  
+  <view class="mypanel">
+    <view class='panel-title'>
+      我的订单
+        <view class='arrow'>
+          <navigator hover-class="none" url='../myorders/index/index'>
+          查看全部订单 <zan-icon type='arrow'></zan-icon>
+          </navigator>
+        </view>
+    </view>
+    <view class='panel-body'>
+      <view class='flex-list'>
+        <navigator url="../myorders/index/index?tag=pending" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='pending-payment'></zan-icon><view wx:if="{{orderTotal!=null && orderTotal.paying>0}}" class="weui-badge">{{orderTotal.paying}}</view>
+          </view>
+          <text>待付款</text>
+        </navigator>
+        <navigator url="../myorders/index/index?tag=shipping" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='pending-deliver'></zan-icon><view wx:if="{{orderTotal!=null && orderTotal.shipping>0}}" class="weui-badge">{{orderTotal.shipping}}</view>
+          </view>
+          <text>待发货</text>
+        </navigator>
+        <navigator url="../myorders/index/index?tag=shipped" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='clock'></zan-icon><view wx:if="{{orderTotal!=null && orderTotal.shipped>0}}" class="weui-badge">{{orderTotal.shipped}}</view>
+          </view>
+          <text>待收货</text>
+        </navigator>
+        <navigator url="../myorders/index/index?tag=finished" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='completed'></zan-icon>
+          </view>
+          <text>已完成</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+   <view class="mypanel">
+    <view class='panel-title'>
+      我的资产
+    </view>
+    <view class='panel-body'>
+      <view class='flex-list'>
+        <navigator wx:if="{{level<=1}}" url="../myaddress/list/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='location'></zan-icon>
+          </view>
+          <text>收货地址</text>
+        </navigator>
+        <navigator url="../mybalance/index/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='gold-coin'></zan-icon>
+          </view>
+          <text>余额提现</text>
+        </navigator>
+        <navigator wx:if="{{level>1}}" url="../myincome/index/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='points'></zan-icon>
+          </view>
+          <text>我的收益</text>
+        </navigator>
+        <navigator wx:if="{{level>1}}" url="../myperformance/index/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='discount'></zan-icon>
+          </view>
+          <text>我的业绩</text>
+        </navigator>
+        <navigator wx:if="{{level>1}}" url="../myteam/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='exchange'></zan-icon>
+          </view>
+          <text>我的分销</text>
+        </navigator>
+      </view>
+      <view class='flex-list' wx:if="{{level>1}}">
+        <navigator url="../myaddress/list/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='location'></zan-icon>
+          </view>
+          <text>收货地址</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class="mypanel">
+    <view class='panel-title'>
+      我的服务
+    </view>
+    <view class='panel-body'>
+      <view class='flex-list'>
+      
+        <block wx:if="{{superiorAvatar!=''}}">
+        <view class='item icon-list' hover-class="none">
+          <view class='icon image'>
+          <image src='{{superiorAvatar}}'></image>
+          </view>
+          <text>闺蜜指导</text>
+        </view>
+        </block>
+        <navigator url="../feedback/index" class='item icon-list' hover-class="none">
+          <view class='icon'>
+          <zan-icon type='chat'></zan-icon>
+          </view>
+          <text>意见反馈</text>
+        </navigator>
+        <block wx:if="{{level>1}}">
+          <button open-type="share" class='item icon-list' hover-class="none">
+            <view class='icon'>
+            <zan-icon type='point-gift'></zan-icon>
+            </view>
+            <text>招募分销</text>
+          </button>
+        </block>
+        
+      </view>
+    </view>
+  </view>
+</view>
+</view>

@@ -1,0 +1,21 @@
+/* pages/auth/login/index.wxss */
+.logo{
+  width: 280rpx;
+  height: 280rpx;  
+  margin: 100rpx;
+}
+.btn{
+  border-radius: 75rpx !important;
+  border-color: transparent;
+}
+.btn::after{
+  border-color: transparent !important;
+}
+.btn.guang{
+  border: 1rpx #e5e5e5 solid;
+  margin-top: 50rpx;
+}
+.container
+{
+  background-color: #fff;
+}

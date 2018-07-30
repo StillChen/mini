@@ -1,0 +1,34 @@
+<!--pages/account/mybalance/withdraw/withdraw.wxml-->
+<view class="container">
+  <view class="view-cells bg-white">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">金额（元）</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput='setAmount' placeholder="请输入提现金额" value='{{amount}}' />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label font-24 color-hui" style='width:auto; margin-right:10rpx'>零钱余额:￥{{profile.balance}}</view>
+      </view>
+      <view class="weui-cell__bd">
+        <button class="money-button" bindtap='allWithdraw'>全部提现</button>
+      </view>
+    </view>
+  </view>
+  <view class="notice">
+    <view>1.每月1-3日申请提现，4-7日统一处理</view>
+    <view>2.提现金额必须是50元起</view>
+    <view>3.客服电话：13787173979(微信同号)</view>
+  </view>
+  <view class="fixed-bottom">
+    <button bindtap="SubmitWithdraw" disabled='{{isSubmit || !canSubmit}}'>提交申请</button>
+  </view>
+</view>
+<zan-toptips
+  id="zan-toptips"
+  content="{{ content }}"
+  is-show="{{ $zanui.toptips.show }}"
+/>

@@ -1,0 +1,14 @@
+function Title(item, count,rcount,index) {
+  if (count > 0 && index==0)
+  {
+    return item += "(" + count + ")";
+  }
+  if (rcount > 0 && index == 1) {
+    return item += "(" + rcount + ")";
+  }
+  return item;
+}
+
+module.exports = {
+  Title: Title
+}

@@ -1,0 +1,29 @@
+/* pages/orders/payment/index.wxss */
+.weui-form-preview{
+    margin-bottom: 25px;
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:40px !important;height: 18px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;}
+.weui-cells_after-title{
+  margin-bottom: 50rpx;
+}
+.payment-active{
+  padding: 0 30rpx;
+}
+.payment-active .weui-btn{
+  border-radius: 46rpx;
+}
+.Countdown{
+  text-align: center;
+  background-color: #fff;
+  padding: 50rpx 0;
+}
+.payment-cancel{
+  text-align: center;
+  margin-top:50rpx;
+}
+.payment-cancel .weui-footer__link
+{
+  display: block;
+}

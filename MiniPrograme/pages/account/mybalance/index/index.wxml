@@ -1,0 +1,21 @@
+<!--pages/account/mybalance/index/index.wxml-->
+<view class='container'>
+  <view class="all-income">
+    <view style="zan-font-12">余额</view>
+    <view class="zan-c-warn zan-font-20">{{profile.balance}}元</view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <navigator url="../records/records" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd zan-font-14">余额明细</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="../withdrawrecords/withdrawrecords" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd zan-font-14">提现记录</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+  <view class="fixed-bottom">
+    <button bindtap="openWithdraw">提现</button>
+  </view>
+</view>
+

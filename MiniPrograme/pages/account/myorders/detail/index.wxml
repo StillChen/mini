@@ -1,0 +1,78 @@
+<!--pages/account/myorders/detail/index.wxml-->
+<view class="container">
+  <view class='express'>
+    <view class='status'>{{order.statusName}}</view>
+    <block wx:if="{{order.expressNo!=null && order.expressNo!=''}}">
+    <navigator url='/pages/account/myorders/express/index?id={{order.id}}' hover-class='none'>
+    <view class='company'>物流公司：{{order.expressCompany}}</view>
+    <view class='expressno'>物流单号：{{order.expressNo}} <zan-icon type="arrow"></zan-icon></view>
+    </navigator>
+    </block>
+  </view>
+  <view class="order-detail-top">
+    <view>
+      订单编号：{{order.orderNo}}
+    </view>
+    <view>
+      下单时间：{{order.creationTimeString}}
+    </view>
+  </view>
+  <view class="margin-top-20 bg-color-white title">
+    <zan-icon type='location'></zan-icon> 收货信息
+  </view>
+  <block wx:if="{{order.addresses==null || order.addresses.length<1}}">
+    <view class="bg-color-white address">
+      <view class="">
+        <text class="zan-font-14">{{order.contact}}</text>
+        <text class="zan-pull-right zan-font-12">{{order.mobile}}</text>
+      </view>
+      <view class="margin-top-20 zan-font-12">{{order.province+order.city+order.district+order.address}}</view>
+    </view>
+  </block>
+  <block wx:if="{{order.addresses!=null && order.addresses.length>0}}">
+    <block wx:for="{{order.addresses}}" wx:key="address.id" wx:for-item="item">
+      <view class="bg-color-white address">
+        <view class="">
+          <text class="zan-font-14">{{item.contact}}</text>
+          <text class="zan-pull-right zan-font-12">{{item.mobile}}</text>
+        </view>
+        <view class="margin-top-20 zan-font-12">{{item.province+item.city+item.district+item.detail}}</view>
+      </view>
+    </block>
+  </block>
+  <view class="margin-top-20 bg-color-white title">
+    <zan-icon type='shop'></zan-icon> 商品信息
+  </view>
+  <view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_appmsg" wx:for="{{goods}}" wx:key="goods.id" wx:for-item="item">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.thumbPath}}"/>
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.goodsTitle}}</view>
+          <view wx:if="{{item.attr!=''}}" class="weui-media-box__desc">规格:{{item.attr}}</view>
+          <view class="temai" wx:if="{{item.isSpecial}}">特卖</view>
+        </view>
+        <view class="order-detail-after font-26">
+          <view>￥{{item.amount}}</view>
+          <view class="zan-pull-right zan-font-12 zan-c-gray margin-top-20">x{{item.quantity}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">发货方式</view>
+      <view class="weui-cell__ft juhuang">包邮</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">订单总计</view>
+      <view class="weui-cell__ft">￥{{order.total}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">代理差价</view>
+      <view class="weui-cell__ft">￥{{order.total-order.amount}}</view>
+    </view>
+  </view>
+</view>

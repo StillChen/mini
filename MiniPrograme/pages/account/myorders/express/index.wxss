@@ -1,0 +1,74 @@
+/* pages/account/myorders/express/index.wxss */
+
+.logistics-top {
+  background-color: #f97b4b;
+  padding: 15rpx 24rpx;
+  display: flex;
+  color: #fff;
+}
+.margin-top-10{
+  margin-top: 20rpx;
+}
+.logistics-image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.logistics-image image {
+  width: 100%;
+  height: 100%;
+}
+
+.logistics-title {
+  flex: 1;
+  margin-left: 35rpx;
+  font-size: 24rpx;
+}
+
+.logistics-detail {
+  padding: 20rpx 0rpx 0 60rpx;
+  background: #fff;
+  margin-top: 30rpx;
+}
+
+.logistics {
+  font-size: 24rpx;
+  padding: 20rpx 60rpx 20rpx 0;
+  border-bottom: 1px solid #f5f3f3;
+  margin-left: 24rpx;
+  position: relative;
+}
+
+.line {
+  width: 1px;
+  height: 120%;
+  background: #d3d3d3;
+  position: absolute;
+  left: -24rpx;
+  bottom: 15rpx;
+}
+
+.logistics-detail .logistics:first-child .line {
+  height: 56%;
+}
+
+.circle {
+  width: 10rpx;
+  height: 10rpx;
+  background: #d3d3d3;
+  border-radius: 100%;
+  position: absolute;
+  left: -28rpx;
+  bottom: 55rpx;
+}
+.logistics-detail .logistics:first-child .circle {
+  width: 20rpx;
+  height: 20rpx;
+  left: -32rpx;
+  bottom: 56%;
+  background: #ff8c27;
+  z-index: 10;
+}
+.logistics-detail .logistics:first-child{
+  color: #ff8c27;
+}
